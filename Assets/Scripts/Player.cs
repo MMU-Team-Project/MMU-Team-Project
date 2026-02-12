@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
-        if (horizontal != 0 && vertical != 0)
+        if (horizontal != 0 && vertical != 0) //corrects diagonal speed
         {
             rb.linearVelocity = new Vector3((playerSpeed / Mathf.Sqrt(2)) * horizontal, rb.linearVelocity.y, (playerSpeed / Mathf.Sqrt(2)) * vertical);
         }
