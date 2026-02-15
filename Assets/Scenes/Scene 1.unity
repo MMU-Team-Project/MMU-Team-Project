@@ -254,6 +254,7 @@ GameObject:
   - component: {fileID: 540738268}
   - component: {fileID: 540738267}
   - component: {fileID: 540738272}
+  - component: {fileID: 540738273}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -393,6 +394,21 @@ MonoBehaviour:
   playerSpeed: 5
   rotationSpeed: 5
   currentRotation: 0
+--- !u!114 &540738273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 540738266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71b0fb26eae3e4145868ab2b05b325c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objStaff: {fileID: 5938412604882968475, guid: 8b3734fff8b1b0d48a415632bfa23251, type: 3}
+  offset: {x: 0.8, y: 0.25, z: 0.7}
+  rotation: {x: 20, y: 20, z: 20}
 --- !u!1 &683462981
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,6 +668,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentRotation: 0
+  rotationSpeed: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
