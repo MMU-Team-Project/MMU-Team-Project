@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    int playerSpeed = 5;
+    public float playerSpeed = 5;
+    public float rotationSpeed = 10;
+    public float currentRotation = 0;
     Rigidbody rb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,11 +22,21 @@ public class Player : MonoBehaviour
         float vertical = Input.GetAxisRaw("Vertical");
         if (horizontal != 0 && vertical != 0) //corrects diagonal speed
         {
-            rb.linearVelocity = new Vector3((playerSpeed / Mathf.Sqrt(2)) * horizontal, rb.linearVelocity.y, (playerSpeed / Mathf.Sqrt(2)) * vertical);
+            rb.linearVelocity = transform.forward * vertical * playerSpeed / Mathf.Sqrt(2) + transform.right * horizontal * playerSpeed / Mathf.Sqrt(2);
         }
-        else 
+        else
         {
-            rb.linearVelocity = new Vector3(playerSpeed * horizontal, rb.linearVelocity.y, playerSpeed * vertical);
+            rb.linearVelocity = transform.forward * vertical * playerSpeed + transform.right * horizontal * playerSpeed;
+        }
+        if (Input.GetAxis("Mouse X") < 0)
+        {
+            currentRotation=currentRotation - rotationSpeed;
+            transform.rotation = Quaternion.Euler(0, currentRotation, 0);
+        }
+        if (Input.GetAxis("Mouse X") > 0)
+        {
+            currentRotation = currentRotation + rotationSpeed;
+            transform.rotation = Quaternion.Euler(0, currentRotation, 0);
         }
     }
 }
