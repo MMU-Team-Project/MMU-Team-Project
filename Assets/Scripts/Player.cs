@@ -3,8 +3,11 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public float playerSpeed = 5;
+    public float jumpSpeed = 5;
     public float rotationSpeed = 10;
     public float currentRotation = 0;
+    public float lowJumpMulti = 2f;
+    public bool grounded = true;
     Rigidbody rb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -37,6 +40,23 @@ public class Player : MonoBehaviour
         {
             currentRotation = currentRotation + rotationSpeed;
             transform.rotation = Quaternion.Euler(0, currentRotation, 0);
+        }
+        if (Input.GetButton("Jump") && grounded)
+        {
+            rb.linearVelocity = transform.up * jumpSpeed;
+            grounded = false;
+        }
+        //if (!grounded)
+        //{
+         //   print(true);
+           // rb.linearVelocity = transform.up * -jumpSpeed/500;
+        //}
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.layer == 3 && (rb.linearVelocity.y < 1 || rb.linearVelocity.y > -1))
+        {
+            grounded = true; //checks if on the ground
         }
     }
 }
