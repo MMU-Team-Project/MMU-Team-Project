@@ -38,6 +38,9 @@ public class Staff : MonoBehaviour, IWeapon
 
     public void Use()
     {
-
+        if(player != null)
+        {
+            Debug.Log(player.name + " cast Magic Missile!");
+        }
     }
 }

@@ -256,6 +256,7 @@ GameObject:
   - component: {fileID: 540738272}
   - component: {fileID: 540738273}
   - component: {fileID: 540738274}
+  - component: {fileID: 540738275}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -407,7 +408,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71b0fb26eae3e4145868ab2b05b325c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objStaff: {fileID: 3920391676522309014, guid: 8c2e945a6747467c9df9724942db32c9, type: 3}
   inventory:
   - {fileID: 3920391676522309014, guid: 8c2e945a6747467c9df9724942db32c9, type: 3}
   - {fileID: 0}
@@ -453,7 +453,19 @@ MonoBehaviour:
     m_ActionId: 6b444451-8a00-4d00-a97e-f47457f736a8
     m_ActionName: 'Player/Look[/Mouse/delta]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 540738275}
+        m_TargetAssemblyTypeName: ItemHandler, Assembly-CSharp
+        m_MethodName: useItem
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 6c2ab1b8-8984-453a-af3d-a3c78ae1679a
     m_ActionName: 'Player/Attack[/Mouse/leftButton,/Keyboard/enter]'
   - m_PersistentCalls:
@@ -541,6 +553,19 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &540738275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 540738266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08ed9ab4aaeae0446bd71b89ec6264b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equippedItem: {fileID: 0}
 --- !u!1 &683462981
 GameObject:
   m_ObjectHideFlags: 0
