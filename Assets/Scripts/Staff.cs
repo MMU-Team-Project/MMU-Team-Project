@@ -1,11 +1,13 @@
 using UnityEditor;
 using UnityEngine;
 
-public class Staff : MonoBehaviour
+public class Staff : MonoBehaviour, IWeapon
 {
     private GameObject player;
     [SerializeField] private GameObject orbPrefab;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private Vector3 offset;
+    [SerializeField] private Vector3 rotation;
+
 
     public void SetPlayer(GameObject newPlayer)
     {
@@ -16,6 +18,7 @@ public class Staff : MonoBehaviour
         //Set player owner if there isn't already one
     }
 
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
     }
@@ -23,11 +26,18 @@ public class Staff : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            GameObject projectile = Instantiate(orbPrefab);
-            projectile.transform.position = player.transform.position;
-            Debug.Log("Shoot the staff");
-        }
+    }
+
+    public void Equip(GameObject newPlayer)
+    {
+        SetPlayer(newPlayer);
+        transform.SetParent(player.transform, false);
+        transform.localPosition = offset;
+        transform.localRotation = Quaternion.Euler(rotation);
+    }
+
+    public void Use()
+    {
+
     }
 }
