@@ -15,7 +15,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if(Input.GetKeyDown("h"))
         {
-            TakeDamage(75);
+            TakeDamage(75);  //temporary damage dealer to test damage script
         }
     }
 

@@ -6,8 +6,7 @@ public class EnemySpawner : MonoBehaviour
 {
 
 [SerializeField]
-    private GameObject enemy; //to do: either position spawners where we want enemies to be or
-                              //       set points to determine a random area to spawn enemies
+    private GameObject enemy; 
 
     [SerializeField]
     private float minSpawnTime;
@@ -20,6 +19,9 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField]
     private Vector3 spawnLocation;
+
+    [SerializeField]
+    private int maxSpawnDist;  //maximum spawn distance from spawner
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -34,9 +36,9 @@ public class EnemySpawner : MonoBehaviour
 
         if(timeUntilSpawn <= 0)
         {
-            spawnLocation = new Vector3(Random.Range(transform.position.x-25, transform.position.x+25), 
-            transform.position.y, 
-            Random.Range(transform.position.z-25, transform.position.z+25));
+            spawnLocation = new Vector3(Random.Range(transform.position.x-maxSpawnDist, transform.position.x+maxSpawnDist), 
+            transform.position.y, //this sets the spawnpoint to a random spot in the area around the spawner
+            Random.Range(transform.position.z-maxSpawnDist, transform.position.z+maxSpawnDist));
 
             Instantiate(enemy, spawnLocation, Quaternion.identity);
             SetTimeUntilSpawn();
@@ -50,6 +52,6 @@ public class EnemySpawner : MonoBehaviour
 
     private void SetTimeUntilSpawn()
     {
-        timeUntilSpawn = Random.Range(minSpawnTime, maxSpawnTime);
+        timeUntilSpawn = Random.Range(minSpawnTime, maxSpawnTime); //spawn enemies a random time between variables
     }
 }
