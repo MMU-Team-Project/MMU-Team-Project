@@ -391,8 +391,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 5
+  jumpSpeed: 7
   rotationSpeed: 5
   currentRotation: 0
+  grounded: 1
+  jumping: 0
 --- !u!1 &683462981
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,7 +408,7 @@ GameObject:
   - component: {fileID: 683462984}
   - component: {fileID: 683462983}
   - component: {fileID: 683462982}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -652,6 +655,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentRotation: 0
+  rotationSpeed: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
