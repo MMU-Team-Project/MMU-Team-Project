@@ -61,7 +61,7 @@ namespace NHance.Assets
 
         void Awake()
         {
-            if(focus == null && TryToFindCharacter)
+            if (focus == null && TryToFindCharacter)
                 focus = FindObjectOfType<NHCharacterController>().gameObject.transform;
             _transform = transform;
             regularCamera = GetComponent<Camera>();
@@ -108,7 +108,7 @@ namespace NHance.Assets
                 rectPosition = castFrom + castDirection * hit.distance;
                 lookPosition = rectPosition - rectOffset;
             }
-            
+
             _transform.position = lookPosition;
             _transform.rotation = lookRotation;
         }
