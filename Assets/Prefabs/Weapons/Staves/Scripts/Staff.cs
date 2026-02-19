@@ -5,6 +5,7 @@ using UnityEngine;
 public class Staff : MonoBehaviour, IWeapon
 {
     private GameObject player;
+    [SerializeField] private float staffDmg = 20;
     [SerializeField] private GameObject attackPrefab;
     [SerializeField] private Vector3 offset;
     [SerializeField] private Vector3 rotation;
@@ -66,6 +67,6 @@ public class Staff : MonoBehaviour, IWeapon
         magicMissile.transform.rotation = playerCam.transform.rotation;
 
         MagicMissile projectileScript = magicMissile.GetComponent<MagicMissile>();
-        projectileScript.Setup(playerCam); //Starts script for projectile handling
+        projectileScript.Setup(playerCam,staffDmg); //Starts script for projectile handling
     }
 }
