@@ -7,8 +7,25 @@ public class ItemHandler : MonoBehaviour
 
     public void equipItem(GameObject newEquip)
     {
+        if (equippedItem != null) //Prevents multiple of the same item being equipped
+            unequipItem();
         equippedItem = newEquip;
-        newEquip.GetComponent<IWeapon>()?.Equip(gameObject); //Equips the weapon if it has IWeapon interface
+        if (equippedItem != null) //Check if what is attempting to be equipped exists
+        {
+            newEquip.GetComponent<IWeapon>()?.Equip(gameObject); //Equips the weapon if it has IWeapon interface
+        }
+        else
+        {
+            unequipItem();
+        }
+    }
+    public void unequipItem()
+    {
+        if (equippedItem != null) //Check if something is already equipped
+        {
+            Debug.Log("Unequipping");
+            Destroy(equippedItem);
+        }
     }
 
     public void useItem(InputAction.CallbackContext context)

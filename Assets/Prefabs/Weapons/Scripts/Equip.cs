@@ -31,14 +31,12 @@ public class Equip : MonoBehaviour
             GameObject equipGoal = inventory[equipSlot];
             if (equipGoal != null)
             {
-                equipped = true;
-
                 GameObject wepModel = Instantiate(equipGoal);
                 items.equipItem(wepModel);
             }
             else
             {
-                equipped = false;
+                items.unequipItem();
             }
             Debug.Log(equipped);
         }
