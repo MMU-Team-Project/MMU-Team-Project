@@ -19,7 +19,7 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    void TakeDamage(float damage)
+    public void TakeDamage(float damage)
     {
         enemyHealth -= damage;
 

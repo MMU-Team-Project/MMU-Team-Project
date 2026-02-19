@@ -119,56 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &426683500
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 426683502}
-  - component: {fileID: 426683501}
-  m_Layer: 0
-  m_Name: EnemySpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &426683501
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 426683500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d87ef28b07c389d43aea737c28ab26ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy: {fileID: 3809277777739660202, guid: 21bd46eec942511479cf9c60bd8bb76e, type: 3}
-  minSpawnTime: 5
-  maxSpawnTime: 10
-  timeUntilSpawn: 0
-  spawnLocation: {x: 0, y: 0, z: 0}
-  maxSpawnDist: 10
---- !u!4 &426683502
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 426683500}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.58, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &550120966
 GameObject:
   m_ObjectHideFlags: 0
@@ -708,6 +658,99 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1001 &2177741045452304437
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 584990005952408865, guid: 536ca052fc351514a96546f88c65c5c9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 584990005952408865, guid: 536ca052fc351514a96546f88c65c5c9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 584990005952408865, guid: 536ca052fc351514a96546f88c65c5c9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 584990005952408865, guid: 536ca052fc351514a96546f88c65c5c9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 584990005952408865, guid: 536ca052fc351514a96546f88c65c5c9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 584990005952408865, guid: 536ca052fc351514a96546f88c65c5c9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 584990005952408865, guid: 536ca052fc351514a96546f88c65c5c9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 584990005952408865, guid: 536ca052fc351514a96546f88c65c5c9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 584990005952408865, guid: 536ca052fc351514a96546f88c65c5c9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 584990005952408865, guid: 536ca052fc351514a96546f88c65c5c9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4829336543395060713, guid: 536ca052fc351514a96546f88c65c5c9, type: 3}
+      propertyPath: m_Name
+      value: EnemySpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 8602512623416390129, guid: 536ca052fc351514a96546f88c65c5c9, type: 3}
+      propertyPath: spawnPoint1.x
+      value: 14.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 8602512623416390129, guid: 536ca052fc351514a96546f88c65c5c9, type: 3}
+      propertyPath: spawnPoint1.y
+      value: 1.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 8602512623416390129, guid: 536ca052fc351514a96546f88c65c5c9, type: 3}
+      propertyPath: spawnPoint1.z
+      value: -12.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 8602512623416390129, guid: 536ca052fc351514a96546f88c65c5c9, type: 3}
+      propertyPath: spawnPoint2.x
+      value: -17.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8602512623416390129, guid: 536ca052fc351514a96546f88c65c5c9, type: 3}
+      propertyPath: spawnPoint2.y
+      value: 1.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 8602512623416390129, guid: 536ca052fc351514a96546f88c65c5c9, type: 3}
+      propertyPath: spawnPoint2.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8602512623416390129, guid: 536ca052fc351514a96546f88c65c5c9, type: 3}
+      propertyPath: spawnPoint3.x
+      value: 8.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8602512623416390129, guid: 536ca052fc351514a96546f88c65c5c9, type: 3}
+      propertyPath: spawnPoint3.y
+      value: 1.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 8602512623416390129, guid: 536ca052fc351514a96546f88c65c5c9, type: 3}
+      propertyPath: spawnPoint3.z
+      value: 20.6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 536ca052fc351514a96546f88c65c5c9, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -715,6 +758,6 @@ SceneRoots:
   - {fileID: 840518681}
   - {fileID: 1473002032}
   - {fileID: 988473005}
-  - {fileID: 426683502}
+  - {fileID: 2177741045452304437}
   - {fileID: 991203862}
   - {fileID: 550120970}
