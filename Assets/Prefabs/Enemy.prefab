@@ -154,6 +154,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHealth: 100
+  difficultyMultiplier: 0
+  manager: {fileID: 7398511410918424324, guid: d0b224d7a2d88ff4489a7bd5530ea477, type: 3}
 --- !u!195 &1961470977872714158
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -4,10 +4,19 @@ public class EnemyHealth : MonoBehaviour
 {
     [SerializeField]
     private float enemyHealth;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    [SerializeField]
+    private float difficultyMultiplier; //how much the health is multiplied by difficulty
+
+    [SerializeField]
+    private GameObject manager;
+
+
+    void Awake()
     {
-        
+        manager = GameObject.FindWithTag("DifficultyManager");
+        difficultyMultiplier = 1 + manager.GetComponent<DifficultyManager>().difficultyLevel/10;
+        enemyHealth *= difficultyMultiplier;
     }
 
     // Update is called once per frame
@@ -15,7 +24,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if(Input.GetKeyDown("h"))
         {
-            TakeDamage(75);  //temporary damage dealer to test damage script
+            TakeDamage(50);  //temporary damage dealer to test damage script
         }
     }
 
