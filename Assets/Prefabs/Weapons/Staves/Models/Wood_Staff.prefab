@@ -253,6 +253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffc3e94b63e0c4443ad9f3380363f73c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  staffDmg: 20
   attackPrefab: {fileID: 8550895464038614403, guid: bdbc8b0ac3f2c8c4baa3d9de3a92048a, type: 3}
   offset: {x: 0.7, y: 0.2, z: 0.5}
   rotation: {x: 90, y: 0, z: 0}
