@@ -394,7 +394,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 5
-  jumpSpeed: 7
   rotationSpeed: 5
   currentRotation: 0
 --- !u!114 &540738273
@@ -579,7 +578,7 @@ GameObject:
   - component: {fileID: 683462984}
   - component: {fileID: 683462983}
   - component: {fileID: 683462982}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
