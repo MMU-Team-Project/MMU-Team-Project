@@ -8,6 +8,7 @@ public class Sword : MonoBehaviour, IWeapon
     [SerializeField] private Vector3 rotation;
     [SerializeField] private Animator swordAnim;
     [SerializeField] private float SwingCooldown = 1f;
+    private float offCDSwing = 0f;
     [SerializeField] private float DamageCooldown = 1f;
     private Camera playerCam;
 
@@ -36,7 +37,7 @@ public class Sword : MonoBehaviour, IWeapon
     {
         if (player != null)
         {
-            if (Time.time < SwingCooldown)
+            if (Time.time < offCDSwing)
             {
                 Debug.Log("Cooldown!");
                 return;
@@ -48,10 +49,8 @@ public class Sword : MonoBehaviour, IWeapon
 
     public void Swing()
     {
-        SwingCooldown = Time.time + SwingCooldown; //Puts attack on cooldown
-
-
-
+        offCDSwing = Time.time + SwingCooldown; //Puts attack on cooldown
+        Debug.Log("Swung");
 
         //GameObject magicMissile = Instantiate(attackPrefab);
 
