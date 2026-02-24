@@ -120,6 +120,7 @@ GameObject:
   - component: {fileID: 1593339681361826946}
   - component: {fileID: -4664523706755679563}
   - component: {fileID: -7127695343285027869}
+  - component: {fileID: 2105101438413966455}
   m_Layer: 0
   m_Name: Sword_4_Red
   m_TagString: Untagged
@@ -136,7 +137,7 @@ Transform:
   m_GameObject: {fileID: 2114296345654939192}
   serializedVersion: 2
   m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: 0.2, y: 0.5, z: 0.2}
+  m_LocalPosition: {x: 0.2, y: 0.5, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -157,12 +158,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0293f4dae4d4344bb3343f6e65828b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  staffDmg: 55
-  attackPrefab: {fileID: 0}
+  swordDmg: 55
   offset: {x: 0.7, y: 0.5, z: 1}
   rotation: {x: 180, y: 90, z: 0}
-  swordAnim: {fileID: 0}
-  SwingCooldown: 1
+  swordAnim: {fileID: -7127695343285027869}
+  SwingCooldown: 0.5
+  DamageCooldown: 0.5
 --- !u!95 &-7127695343285027869
 Animator:
   serializedVersion: 7
@@ -185,6 +186,27 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &2105101438413966455
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2114296345654939192}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.13, y: 1, z: 0.12}
+  m_Center: {x: 0, y: -0.21, z: 0}
 --- !u!1 &2754392108613641109
 GameObject:
   m_ObjectHideFlags: 0
