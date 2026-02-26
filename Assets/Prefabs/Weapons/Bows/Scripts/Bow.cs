@@ -6,6 +6,7 @@ public class Bow : MonoBehaviour, IWeapon
     private GameObject player;
     private float offCDShoot = 0f;
     private Camera playerCam;
+    [SerializeField] private Animator bowAnim;
     [SerializeField] private Vector3 offset;
     [SerializeField] private Vector3 rotation;
 
@@ -36,6 +37,8 @@ public class Bow : MonoBehaviour, IWeapon
                 Debug.Log("Cooldown!");
                 return;
             }
+
+            bowAnim.SetTrigger("Shoot");
         }
     }
 
