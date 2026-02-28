@@ -392,7 +392,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpeed: 5
   jumpSpeed: 7
-  rotationSpeed: 5
+  rotationSpeed: 2
   currentRotation: 0
   grounded: 1
   jumping: 0
@@ -655,7 +655,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentRotation: 0
-  rotationSpeed: 1
+  rotationSpeed: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

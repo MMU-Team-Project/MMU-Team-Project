@@ -43,12 +43,12 @@ public class Player : MonoBehaviour
         if (Input.GetAxis("Mouse X") < 0)
         {
             currentRotation=currentRotation - rotationSpeed;
-            transform.rotation = Quaternion.Euler(0, currentRotation, 0);
+            transform.rotation = Quaternion.AngleAxis(currentRotation, Vector3.up);
         }
         if (Input.GetAxis("Mouse X") > 0)
         {
             currentRotation = currentRotation + rotationSpeed;
-            transform.rotation = Quaternion.Euler(0, currentRotation, 0);
+            transform.rotation = Quaternion.AngleAxis(currentRotation, Vector3.up);
         }
         if (rb.linearVelocity.y > 0 && !grounded)
         {
