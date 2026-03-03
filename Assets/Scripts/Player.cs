@@ -8,10 +8,12 @@ public class Player : MonoBehaviour
     public float currentRotation = 0;
     public bool grounded = true;
     public bool jumping = false;
+    [SerializeField] Camera cam;
     Rigidbody rb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        
         Cursor.lockState = CursorLockMode.Locked;
         rb = GetComponent<Rigidbody>();
     }
@@ -27,6 +29,18 @@ public class Player : MonoBehaviour
         }
         if (!Input.GetButtonDown("Jump"))
             jumping = false;
+
+        if (Input.GetAxis("Mouse X") < 0)
+        {
+            currentRotation = currentRotation + rotationSpeed * Input.GetAxis("Mouse X");
+            transform.rotation = Quaternion.AngleAxis(currentRotation, Vector3.up);
+        }
+        if (Input.GetAxis("Mouse X") > 0)
+        {
+            currentRotation = currentRotation + rotationSpeed * Input.GetAxis("Mouse X");
+            transform.rotation = Quaternion.AngleAxis(currentRotation, Vector3.up);
+        }
+
     }
     void FixedUpdate()
     {
@@ -40,16 +54,16 @@ public class Player : MonoBehaviour
         {
             rb.linearVelocity = transform.forward * vertical * playerSpeed + transform.right * horizontal * playerSpeed + transform.up * rb.linearVelocity.y;
         }
-        if (Input.GetAxis("Mouse X") < 0)
-        {
-            currentRotation=currentRotation - rotationSpeed;
-            transform.rotation = Quaternion.AngleAxis(currentRotation, Vector3.up);
-        }
-        if (Input.GetAxis("Mouse X") > 0)
-        {
-            currentRotation = currentRotation + rotationSpeed;
-            transform.rotation = Quaternion.AngleAxis(currentRotation, Vector3.up);
-        }
+        //if (Input.GetAxis("Mouse X") < 0)
+        //{
+        //    currentRotation=currentRotation - rotationSpeed;
+        //    transform.rotation = Quaternion.AngleAxis(currentRotation, Vector3.up);
+        //}
+        //if (Input.GetAxis("Mouse X") > 0)
+        //{
+        //    currentRotation = currentRotation + rotationSpeed;
+        //    transform.rotation = Quaternion.AngleAxis(currentRotation, Vector3.up);
+        //}
         if (rb.linearVelocity.y > 0 && !grounded)
         {
             rb.linearVelocity += transform.up * 1.2f * Time.deltaTime * Physics.gravity.y;
