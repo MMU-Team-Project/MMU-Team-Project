@@ -13,23 +13,19 @@ public class PlayerCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentRotation > 90)
-            currentRotation = 90;
-        if (currentRotation < -90)
-            currentRotation = -90;
-
-    }
-    void FixedUpdate()
-    {
-        if (Input.GetAxis("Mouse Y") < 0 && currentRotation >= -90)
+        if (currentRotation > 70)
+            currentRotation = 70;
+        if (currentRotation < -70)
+            currentRotation = -70;
+        if (Input.GetAxis("Mouse Y") < 0 && currentRotation >= -70)
         {
-            currentRotation = currentRotation + rotationSpeed;
-            transform.localRotation = Quaternion.Euler(currentRotation, 0, 0);
+            currentRotation = currentRotation - rotationSpeed * Input.GetAxis("Mouse Y");
+            transform.localRotation = Quaternion.AngleAxis(currentRotation, Vector3.right);
         }
-        if (Input.GetAxis("Mouse Y") > 0 && currentRotation <= 90)
+        if (Input.GetAxis("Mouse Y") > 0 && currentRotation <= 70)
         {
-            currentRotation = currentRotation - rotationSpeed;
-            transform.localRotation = Quaternion.Euler(currentRotation, 0, 0);
+            currentRotation = currentRotation - rotationSpeed * Input.GetAxis("Mouse Y");
+            transform.localRotation = Quaternion.AngleAxis(currentRotation, Vector3.right);
         }
     }
 }
