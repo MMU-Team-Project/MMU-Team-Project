@@ -20,11 +20,13 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField]
     private GameObject itemPlaceHolder;
 
+    [SerializeField]
+    public float Damage;
 
     void Awake()
     {
         manager = GameObject.FindWithTag("DifficultyManager");
-        difficultyMultiplier = 1 + manager.GetComponent<DifficultyManager>().difficultyLevel/10;
+        difficultyMultiplier = 1 + manager.GetComponent<DifficultyManager>().difficultyLevel / 10;
         maxHealth *= difficultyMultiplier;
         health = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
@@ -33,11 +35,11 @@ public class EnemyHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown("h"))
+        if (Input.GetKeyDown("h"))
         {
             TakeDamage(50);  //temporary damage dealer to test damage script
         }
-        else if(Input.GetKeyDown("k"))
+        else if (Input.GetKeyDown("k"))
         {
             TakeDamage(-20);
         }
@@ -69,7 +71,7 @@ public class EnemyHealth : MonoBehaviour
     {
         int roll = Random.Range(0, 2);
 
-        if(roll == 0)
+        if (roll == 0)
         {
             Instantiate(itemPlaceHolder, transform.position, Quaternion.identity);
         }
