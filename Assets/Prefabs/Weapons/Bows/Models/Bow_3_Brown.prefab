@@ -157,6 +157,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9a2147d32230384d9f92a43811936a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  arrowModel: {fileID: 6261427311226159903, guid: 3464b5f29be326b4ab8e696245e95497, type: 3}
+  spawn: {fileID: 0}
+  bowAnim: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   rotation: {x: 0, y: 0, z: 0}
 --- !u!95 &-5980716695171887772

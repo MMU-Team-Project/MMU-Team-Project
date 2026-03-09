@@ -1,11 +1,18 @@
+using System.Collections;
 using UnityEngine;
 
 public class Bow : MonoBehaviour, IWeapon
 {
     // Data Members
     private GameObject player;
-    private float offCDShoot = 0f;
     private Camera playerCam;
+
+    private KeyCode attack = KeyCode.Mouse0;
+    private float charge;
+    private float chargeMax = 100;
+    private float chargeRate = 50;
+
+    [SerializeField] private Rigidbody arrowModel;
     [SerializeField] private Animator bowAnim;
     [SerializeField] private Vector3 offset;
     [SerializeField] private Vector3 rotation;
@@ -32,9 +39,9 @@ public class Bow : MonoBehaviour, IWeapon
     {
         if (player != null)
         {
-            if (Time.time < offCDShoot)
+            if (charge < chargeMax)
             {
-                Debug.Log("Cooldown!");
+                Debug.Log("Charging");
                 return;
             }
 
@@ -42,13 +49,18 @@ public class Bow : MonoBehaviour, IWeapon
         }
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
     void Update()
     {
+        if(Input.GetKey(attack) && charge < chargeMax)
+        {
+            charge += Time.deltaTime * chargeRate;
+        }
+
+        if(Input.GetKeyUp(attack))
+        {
+            Rigidbody arrow = Instantiate(arrowModel, player.transform.position, Quaternion.identity) as Rigidbody;
+            arrow.AddForce(playerCam.transform.forward * charge, ForceMode.Impulse);
+            charge = 0;
+        }
     }
 }
