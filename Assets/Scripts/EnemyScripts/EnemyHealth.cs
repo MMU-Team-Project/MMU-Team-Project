@@ -20,9 +20,6 @@ public class EnemyHealth : MonoBehaviour
     private HealthBarUI healthBar;
 
     [SerializeField]
-    private GameObject itemPlaceHolder;
-
-    [SerializeField]
     private List<GameObject> dropTable = new List<GameObject>();
 
     [SerializeField]
@@ -31,7 +28,6 @@ public class EnemyHealth : MonoBehaviour
 
     void Awake()
     {
-        manager = GameObject.FindWithTag("DifficultyManager");
         difficultyMultiplier = 1 + manager.GetComponent<DifficultyManager>().difficultyLevel/10;
         maxHealth *= difficultyMultiplier;
         health = maxHealth;
