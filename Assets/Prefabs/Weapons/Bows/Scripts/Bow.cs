@@ -15,6 +15,7 @@ public class Bow : MonoBehaviour, IWeapon
 
     private float offCDShooting = 0f;
     [SerializeField] private float shootingCD = 2f;
+    [SerializeField] private float shootDmg = 50;
 
     public void SetPlayer(GameObject newPlayer)
     {
@@ -57,7 +58,7 @@ public class Bow : MonoBehaviour, IWeapon
         arrow.transform.position = player.transform.position + playerCam.transform.forward * 2;
         arrow.transform.rotation = playerCam.transform.rotation;
 
-        MagicMissile projectileScript = magicMissile.GetComponent<MagicMissile>();
-        projectileScript.Setup(playerCam,arrowDmg); //Starts script for projectile handling
+        MagicMissile projectileScript = arrow.GetComponent<MagicMissile>();
+        projectileScript.Setup(playerCam,shootDmg); //Starts script for projectile handling
     }
 }

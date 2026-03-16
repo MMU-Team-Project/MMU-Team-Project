@@ -135,8 +135,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2767793959698289778}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0.08802608, z: -0, w: 0.9961182}
+  m_LocalPosition: {x: 0.126, y: 0.882, z: 0.341}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -144,7 +144,7 @@ Transform:
   - {fileID: 8537340992200406676}
   - {fileID: 6047110048854174429}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -10.1, z: 0}
 --- !u!114 &8848767158394268489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,11 +157,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9a2147d32230384d9f92a43811936a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrowModel: {fileID: 6261427311226159903, guid: 3464b5f29be326b4ab8e696245e95497, type: 3}
-  spawn: {fileID: 0}
-  bowAnim: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   rotation: {x: 0, y: 0, z: 0}
+  bowAnim: {fileID: 0}
+  attackPrefab: {fileID: 2062873342601162577, guid: 2e628127bb2e83c468c508e8b152f2f5, type: 3}
+  shootingCD: 2
+  shootDmg: 50
 --- !u!95 &-5980716695171887772
 Animator:
   serializedVersion: 7
@@ -172,7 +173,7 @@ Animator:
   m_GameObject: {fileID: 2767793959698289778}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d140d263d34a418884de6b4a6221207d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1897cae521078ac49a989ca9a09c42fe, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
