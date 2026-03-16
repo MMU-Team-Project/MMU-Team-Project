@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEditor;
 using UnityEngine;
 
 public class Bow : MonoBehaviour, IWeapon
@@ -7,15 +8,13 @@ public class Bow : MonoBehaviour, IWeapon
     private GameObject player;
     private Camera playerCam;
 
-    private KeyCode attack = KeyCode.Mouse0;
-    private float charge;
-    private float chargeMax = 100;
-    private float chargeRate = 50;
-
-    [SerializeField] private Rigidbody arrowModel;
-    [SerializeField] private Animator bowAnim;
     [SerializeField] private Vector3 offset;
     [SerializeField] private Vector3 rotation;
+    [SerializeField] private Animator bowAnim;
+    [SerializeField] private GameObject attackPrefab;
+
+    private float offCDShooting = 0f;
+    [SerializeField] private float shootingCD = 2f;
 
     public void SetPlayer(GameObject newPlayer)
     {
@@ -39,28 +38,26 @@ public class Bow : MonoBehaviour, IWeapon
     {
         if (player != null)
         {
-            if (charge < chargeMax)
+            if (Time.time < offCDShooting)
             {
-                Debug.Log("Charging");
+                Debug.Log("Charging!");
                 return;
             }
 
-            bowAnim.SetTrigger("Shoot");
+            bowAnim.SetTrigger("Shoot!");
         }
     }
 
-    void Update()
+    public void Arrow()
     {
-        if(Input.GetKey(attack) && charge < chargeMax)
-        {
-            charge += Time.deltaTime * chargeRate;
-        }
+        offCDShooting = Time.time + shootingCD; //Puts cast on cooldown
 
-        if(Input.GetKeyUp(attack))
-        {
-            Rigidbody arrow = Instantiate(arrowModel, player.transform.position, Quaternion.identity) as Rigidbody;
-            arrow.AddForce(playerCam.transform.forward * charge, ForceMode.Impulse);
-            charge = 0;
-        }
+        GameObject arrow = Instantiate(attackPrefab);
+
+        arrow.transform.position = player.transform.position + playerCam.transform.forward * 2;
+        arrow.transform.rotation = playerCam.transform.rotation;
+
+        MagicMissile projectileScript = magicMissile.GetComponent<MagicMissile>();
+        projectileScript.Setup(playerCam,arrowDmg); //Starts script for projectile handling
     }
 }
