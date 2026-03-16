@@ -209,7 +209,7 @@ MonoBehaviour:
     Enabled: 0
     Target: {fileID: 0}
   - Type: 1
-    Enabled: 0
+    Enabled: 1
     Target: {fileID: 0}
   - Type: 2
     Enabled: 0

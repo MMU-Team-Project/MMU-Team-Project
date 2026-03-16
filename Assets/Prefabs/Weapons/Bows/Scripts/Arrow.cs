@@ -3,7 +3,16 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
-    private int arrowDamage = 20;
+    private float arrowDamage;
+    private Rigidbody rb;
+    private Camera playerCam;
+
+    public void Setup(Camera newPlayerCam, float newArrowDmg)
+    {
+        playerCam = newPlayerCam;
+        rb = transform.GetComponent<Rigidbody>();
+        arrowDamage = newArrowDmg;
+    }
 
     private void OnTriggerEnter(Collider target)
     {

@@ -51,14 +51,13 @@ public class Bow : MonoBehaviour, IWeapon
 
     public void Arrow()
     {
-        offCDShooting = Time.time + shootingCD; //Puts cast on cooldown
+        offCDShooting = Time.time + shootingCD;
 
         GameObject arrow = Instantiate(attackPrefab);
 
         arrow.transform.position = player.transform.position + playerCam.transform.forward * 2;
-        arrow.transform.rotation = playerCam.transform.rotation;
 
-        MagicMissile projectileScript = arrow.GetComponent<MagicMissile>();
-        projectileScript.Setup(playerCam,shootDmg); //Starts script for projectile handling
+        Arrow projectileScript = arrow.GetComponent<Arrow>();
+        projectileScript.Setup(playerCam, shootDmg);
     }
 }
