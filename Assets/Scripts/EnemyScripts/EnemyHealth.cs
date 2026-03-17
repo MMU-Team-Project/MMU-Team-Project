@@ -17,7 +17,7 @@ public class EnemyHealth : MonoBehaviour
     private GameObject manager;
 
     [SerializeField]
-    private HealthBarUI healthBar;
+    private FloatingHealth healthBar;
 
     [SerializeField]
     private List<GameObject> dropTable = new List<GameObject>();

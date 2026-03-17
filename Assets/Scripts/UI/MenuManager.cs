@@ -5,6 +5,8 @@ public class MenuManager : MonoBehaviour
 
     [SerializeField]
     private GameObject InventoryUI;
+    [SerializeField]
+    private GameObject Backdrop;
 
     [SerializeField]
     private bool inventoryOpen;
@@ -39,6 +41,7 @@ public class MenuManager : MonoBehaviour
     void OpenInventory()
     {
         InventoryUI.SetActive(true);
+        Backdrop.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         Time.timeScale = 0f;
@@ -47,6 +50,7 @@ public class MenuManager : MonoBehaviour
     void CloseInventory()
     {
         InventoryUI.SetActive(false);
+        Backdrop.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         Time.timeScale = 1f;

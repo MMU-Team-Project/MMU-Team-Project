@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum SpawnerType {Decaying, Infinite};
+
 public class EnemySpawner : MonoBehaviour
 {
 
@@ -34,6 +36,12 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField]
     private List<Vector3> spawnPointList = new List<Vector3>();
+
+    [SerializeField]
+    private int spawnsLeft;
+
+    [SerializeField]
+    private SpawnerType spawner;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -55,7 +63,19 @@ public class EnemySpawner : MonoBehaviour
             RandomSetLocations();
 
             SetTimeUntilSpawn();
+
+            if (spawner == SpawnerType.Decaying)
+            {
+
+                spawnsLeft --;
+
+                if (spawnsLeft <= 0)
+                {
+                    Destroy(gameObject);
+                }
+            }
         }
+
     }
 
     private void SetTimeUntilSpawn()

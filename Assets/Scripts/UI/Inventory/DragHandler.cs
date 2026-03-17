@@ -8,8 +8,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
 {
     private Transform targetTransform;
 
-    [SerializeField]
-    private Image targetImage;
+    public Image targetImage;
     
     public Transform TargetTransform
     {
@@ -19,16 +18,16 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("Dragging started");
         targetTransform = transform.parent;
+        GetComponentInParent<InventoryItemSlot>().ClearSlot();
         transform.SetParent(transform.root);
         transform.SetAsLastSibling();
         targetImage.raycastTarget = false;
+
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log("Dragging now");
         Vector3 newPos = Input.mousePosition;
         newPos.x = Mathf.Clamp(newPos.x, 0, Screen.width);
         newPos.y = Mathf.Clamp(newPos.y, 0, Screen.height);
@@ -37,7 +36,6 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("Dragging ended");
         transform.SetParent(targetTransform);
         targetImage.raycastTarget = true;
     }
