@@ -1,7 +1,4 @@
-using System.Collections;
-using UnityEditor;
 using UnityEngine;
-
 public class Bow : MonoBehaviour, IWeapon
 {
     // Data Members
@@ -16,6 +13,7 @@ public class Bow : MonoBehaviour, IWeapon
     private float offCDShooting = 0f;
     [SerializeField] private float shootingCD = 2f;
     [SerializeField] private float shootDmg = 50;
+    [SerializeField] private float range = 50f;
 
     public void SetPlayer(GameObject newPlayer)
     {
@@ -45,7 +43,18 @@ public class Bow : MonoBehaviour, IWeapon
                 return;
             }
 
-            bowAnim.SetTrigger("Shoot!");
+            Shoot();
+            bowAnim.SetTrigger("Shoot");
+        }
+    }
+
+    private void Shoot()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out hit, range))
+        {
+            Debug.Log(hit.transform.name);
+            Arrow();
         }
     }
 
@@ -59,5 +68,17 @@ public class Bow : MonoBehaviour, IWeapon
 
         Arrow projectileScript = arrow.GetComponent<Arrow>();
         projectileScript.Setup(playerCam, shootDmg);
+    }
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
     }
 }

@@ -1,27 +1,27 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering.Universal.Internal;
 
 public class Arrow : MonoBehaviour
 {
     private float arrowDamage;
-    private Rigidbody rb;
     private Camera playerCam;
 
     public void Setup(Camera newPlayerCam, float newArrowDmg)
     {
         playerCam = newPlayerCam;
-        rb = transform.GetComponent<Rigidbody>();
         arrowDamage = newArrowDmg;
     }
 
     private void OnTriggerEnter(Collider target)
     {
-        if(target.GetComponent<EnemyHealth>())
+        if (target.CompareTag("Enemy"))
         {
-            EnemyHealth health = target.GetComponent<EnemyHealth>();
-            if (health != null)
+            EnemyHealth enemyHealth = target.GetComponent<EnemyHealth>();
+            if (enemyHealth != null)
             {
-                health.TakeDamage(arrowDamage);
+                enemyHealth.TakeDamage(arrowDamage);
+                Destroy(gameObject);
             }
         }
     }
