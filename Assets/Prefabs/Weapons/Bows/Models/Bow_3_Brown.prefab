@@ -164,6 +164,7 @@ MonoBehaviour:
   attackPrefab: {fileID: 2062873342601162577, guid: 2e628127bb2e83c468c508e8b152f2f5, type: 3}
   shootingCD: 2
   shootDmg: 50
+  range: 50
 --- !u!95 &-5980716695171887772
 Animator:
   serializedVersion: 7
