@@ -7,6 +7,7 @@ public class EquipEdited : MonoBehaviour
     bool equipped = false;
     ItemHandler items;
     public GameObject[] hotBar = new GameObject[4];
+    public int equipSlot;
 
     void Awake()
     {
@@ -27,7 +28,7 @@ public class EquipEdited : MonoBehaviour
         if (context.performed)
         {
             var selectedSlot = context.control as KeyControl;
-            int equipSlot = selectedSlot.keyCode == Key.Digit0 ? 9 : (int)(selectedSlot.keyCode - Key.Digit1); //Handles conversion of NumKey input into Integer in one line, to be concise.
+            equipSlot = selectedSlot.keyCode == Key.Digit0 ? 9 : (int)(selectedSlot.keyCode - Key.Digit1); //Handles conversion of NumKey input into Integer in one line, to be concise.
             GameObject equipGoal = hotBar[equipSlot];
             if (equipGoal != null)
             {
@@ -40,5 +41,20 @@ public class EquipEdited : MonoBehaviour
             }
             Debug.Log(equipped);
         }
+    }
+
+    public void EquipCheck()
+    {
+        GameObject equipGoal = hotBar[equipSlot];
+        if (equipGoal != null)
+        {
+            GameObject wepModel = Instantiate(equipGoal);
+            items.equipItem(wepModel);
+        }
+        else
+        {
+            items.unequipItem();
+        }
+        Debug.Log(equipped);
     }
 }

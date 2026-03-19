@@ -11,6 +11,8 @@ public class InventoryItemSlot : MonoBehaviour, IDropHandler
 
     Transform targetParent;
 
+    InventoryItemSlot existingItemSlotScript;
+
     public int hotbarNum;
 
     public GameObject[] hotBar;
@@ -60,6 +62,7 @@ public class InventoryItemSlot : MonoBehaviour, IDropHandler
                         targetParent = HotbarParent.transform.GetChild(i);
                         Instantiate(inventoryItem, targetParent);
                         hotBar[i] = inventoryItem.GetComponent<Item>().itemData.itemPrefab;
+                        player.GetComponent<EquipEdited>().EquipCheck();
                     }
                 }
             }
@@ -74,13 +77,41 @@ public class InventoryItemSlot : MonoBehaviour, IDropHandler
 
         existingItem.transform.SetParent(draggingEndedItemDragHandler.TargetTransform);
         draggingEndedItem.transform.SetParent(transform);
-        existingItemDragHandler.TargetTransform = draggingEndedItemDragHandler.TargetTransform;
         draggingEndedItemDragHandler.TargetTransform = transform;
+        existingItemDragHandler.TargetTransform = draggingEndedItemDragHandler.TargetTransform;
+        existingItemSlotScript = existingItem.transform.parent.GetComponent<InventoryItemSlot>();
+        if(slotType == SlotType.Hotbar)
+        {
+            ClearSlot();
+            for (int i = 0; i < 4; i++)
+            {
+                if(hotbarNum == i)
+                {
+                    targetParent = HotbarParent.transform.GetChild(i);
+                    Instantiate(draggingEndedItem, targetParent);
+                    hotBar[i] = draggingEndedItem.GetComponent<Item>().itemData.itemPrefab;
+                    player.GetComponent<EquipEdited>().EquipCheck();
+                }
+            }
+        }
+        if(existingItemSlotScript.slotType == SlotType.Hotbar)
+        {
+            for (int i = 0; i< 4; i++)
+            {
+                if(existingItemSlotScript.hotbarNum == i)
+                {
+                    targetParent = HotbarParent.transform.GetChild(i);
+                    Instantiate(existingItem, targetParent);
+                    hotBar[i] = existingItem.GetComponent<Item>().itemData.itemPrefab;
+                    player.GetComponent<EquipEdited>().EquipCheck();
+                }
+            }
+        }
+        
     }
 
     public void ClearSlot()
     {
-        Debug.Log("bing bong");
         if (slotType == SlotType.Hotbar)
         {
             for (int i = 0;i < 4;i++)

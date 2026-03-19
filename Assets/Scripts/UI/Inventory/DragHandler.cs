@@ -9,6 +9,9 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
     private Transform targetTransform;
 
     public Image targetImage;
+
+    [SerializeField]
+    private GameObject player;
     
     public Transform TargetTransform
     {
@@ -20,6 +23,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
     {
         targetTransform = transform.parent;
         GetComponentInParent<InventoryItemSlot>().ClearSlot();
+        player.GetComponent<EquipEdited>().EquipCheck();
         transform.SetParent(transform.root);
         transform.SetAsLastSibling();
         targetImage.raycastTarget = false;
