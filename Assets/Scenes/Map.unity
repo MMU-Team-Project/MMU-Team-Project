@@ -6736,11 +6736,7 @@ Transform:
   m_GameObject: {fileID: 387763518}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-<<<<<<< Updated upstream
-  m_LocalPosition: {x: 0, y: 1.88, z: 6.48}
-=======
-  m_LocalPosition: {x: 0, y: 1.88, z: -67.3}
->>>>>>> Stashed changes
+  m_LocalPosition: {x: 0, y: 1.88, z: -67}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11789,13 +11785,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-<<<<<<< Updated upstream
-  m_Size: {x: 16, y: 1, z: 32}
-  m_Center: {x: 12, y: 6.8, z: 0.5}
-=======
   m_Size: {x: 16, y: 0.2, z: 32}
   m_Center: {x: 12, y: 7.2, z: 0.5}
->>>>>>> Stashed changes
 --- !u!1001 &715960095
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18706,8 +18697,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: eb7b004352e65cc49a6be948163b4012, type: 3}
   m_PrefabInstance: {fileID: 1055768262}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< Updated upstream
-=======
 --- !u!1 &1057140024
 GameObject:
   m_ObjectHideFlags: 0
@@ -18761,7 +18750,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.2, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
->>>>>>> Stashed changes
 --- !u!1 &1057922086 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8724372271552718851, guid: 6419b26c8ea619c4596349feaa4cc042, type: 3}
@@ -34364,11 +34352,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 273440906667287937, guid: 5a681486c498eaf48bd25594270c0bc6, type: 3}
       propertyPath: m_LocalPosition.y
-<<<<<<< Updated upstream
-      value: 4.475812
-=======
       value: 4.69
->>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 273440906667287937, guid: 5a681486c498eaf48bd25594270c0bc6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -38329,13 +38313,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-<<<<<<< Updated upstream
-  m_Size: {x: 23.277382, y: 0.38623524, z: 26.796183}
-  m_Center: {x: 4.8, y: 2.0940347, z: -22}
-=======
   m_Size: {x: 23.277382, y: 0.2, z: 28.79618}
   m_Center: {x: 4.8, y: 2.2, z: -22}
->>>>>>> Stashed changes
 --- !u!1001 &2111748563
 PrefabInstance:
   m_ObjectHideFlags: 0
