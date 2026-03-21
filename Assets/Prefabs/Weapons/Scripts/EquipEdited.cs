@@ -2,11 +2,12 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 
-public class Equip : MonoBehaviour
+public class EquipEdited : MonoBehaviour
 {
     bool equipped = false;
     ItemHandler items;
-    [SerializeField] private GameObject[] inventory = new GameObject[10];
+    public GameObject[] hotBar = new GameObject[4];
+    public int equipSlot;
 
     void Awake()
     {
@@ -27,8 +28,8 @@ public class Equip : MonoBehaviour
         if (context.performed)
         {
             var selectedSlot = context.control as KeyControl;
-            int equipSlot = selectedSlot.keyCode == Key.Digit0 ? 9 : (int)(selectedSlot.keyCode - Key.Digit1); //Handles conversion of NumKey input into Integer in one line, to be concise.
-            GameObject equipGoal = inventory[equipSlot];
+            equipSlot = selectedSlot.keyCode == Key.Digit0 ? 9 : (int)(selectedSlot.keyCode - Key.Digit1); //Handles conversion of NumKey input into Integer in one line, to be concise.
+            GameObject equipGoal = hotBar[equipSlot];
             if (equipGoal != null)
             {
                 GameObject wepModel = Instantiate(equipGoal);
@@ -40,5 +41,20 @@ public class Equip : MonoBehaviour
             }
             Debug.Log(equipped);
         }
+    }
+
+    public void EquipCheck()
+    {
+        GameObject equipGoal = hotBar[equipSlot];
+        if (equipGoal != null)
+        {
+            GameObject wepModel = Instantiate(equipGoal);
+            items.equipItem(wepModel);
+        }
+        else
+        {
+            items.unequipItem();
+        }
+        Debug.Log(equipped);
     }
 }

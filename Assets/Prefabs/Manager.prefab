@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7398511410918424324
+--- !u!1 &583188891493476472
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,42 +8,56 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6718150952620325217}
-  - component: {fileID: 8546054054391804010}
+  - component: {fileID: 716535084478577956}
+  - component: {fileID: 6695244308546487604}
+  - component: {fileID: 4831533674181001503}
   m_Layer: 0
-  m_Name: DifficultyManager
+  m_Name: Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6718150952620325217
+--- !u!4 &716535084478577956
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7398511410918424324}
+  m_GameObject: {fileID: 583188891493476472}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.3707771, y: -3.9930153, z: -5.1630774}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8546054054391804010
+--- !u!114 &6695244308546487604
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7398511410918424324}
+  m_GameObject: {fileID: 583188891493476472}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 551679d740d14db4eba726397060c388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   timeUntilLvlUp: 0
-  levelUpTime: 30
+  levelUpTime: 20
   difficultyLevel: 0
+--- !u!114 &4831533674181001503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583188891493476472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a79f97d366cfc045aebcec144fc13b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InventoryUI: {fileID: 4637579806393983847, guid: 1f13f626ec8b9024ea12179bec7d1f91, type: 3}

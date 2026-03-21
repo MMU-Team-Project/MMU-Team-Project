@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
@@ -15,15 +17,17 @@ public class EnemyHealth : MonoBehaviour
     private GameObject manager;
 
     [SerializeField]
-    private HealthBarUI healthBar;
+    private FloatingHealth healthBar;
 
     [SerializeField]
-    private GameObject itemPlaceHolder;
+    private List<GameObject> dropTable = new List<GameObject>();
+
+    [SerializeField]
+    private int dropChance;
 
 
     void Awake()
     {
-        manager = GameObject.FindWithTag("DifficultyManager");
         difficultyMultiplier = 1 + manager.GetComponent<DifficultyManager>().difficultyLevel/10;
         maxHealth *= difficultyMultiplier;
         health = maxHealth;
@@ -67,11 +71,11 @@ public class EnemyHealth : MonoBehaviour
 
     public void RollDropTable()
     {
-        int roll = Random.Range(0, 2);
 
-        if(roll == 0)
+        if(Random.Range(0, 100) <= dropChance)
         {
-            Instantiate(itemPlaceHolder, transform.position, Quaternion.identity);
+            int roll = Random.Range(0, dropTable.Count);
+            Instantiate(dropTable[roll], transform.position, Quaternion.identity);
         }
 
         //foreach item in droptable check if roll is that number then spawn that item
