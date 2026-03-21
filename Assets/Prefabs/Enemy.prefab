@@ -354,9 +354,14 @@ MonoBehaviour:
   health: 0
   maxHealth: 100
   difficultyMultiplier: 0
-  manager: {fileID: 7398511410918424324, guid: d0b224d7a2d88ff4489a7bd5530ea477, type: 3}
+  manager: {fileID: 583188891493476472, guid: 2216f67f29815f5428f3f820539cc449, type: 3}
   healthBar: {fileID: 8372171181653519038}
   itemPlaceHolder: {fileID: 4637579806393983847, guid: 1f13f626ec8b9024ea12179bec7d1f91, type: 3}
+  dropTable:
+  - {fileID: 4637579806393983847, guid: 1f13f626ec8b9024ea12179bec7d1f91, type: 3}
+  - {fileID: 7378001325131062355, guid: e712f01645cd4934a94a1dd40d4c5c40, type: 3}
+  - {fileID: 2681112451501280169, guid: 6b10c6f786c76344c9a1b34accea117f, type: 3}
+  dropChance: 35
 --- !u!195 &1961470977872714158
 NavMeshAgent:
   m_ObjectHideFlags: 0
