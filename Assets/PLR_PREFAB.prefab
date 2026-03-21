@@ -314,7 +314,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &242882562884708707
 MonoBehaviour:
@@ -349,17 +349,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71b0fb26eae3e4145868ab2b05b325c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory:
-  - {fileID: 4490760756132688664, guid: 0fb706cdc9a250b4aa9bc8df871b799a, type: 3}
-  - {fileID: 2114296345654939192, guid: b59a052ce5dc0f942a5c8b3f365f0c22, type: 3}
+  hotBar:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  equipSlot: 0
 --- !u!114 &6021796504765737252
 MonoBehaviour:
   m_ObjectHideFlags: 0
