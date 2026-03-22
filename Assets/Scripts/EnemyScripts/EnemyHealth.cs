@@ -25,6 +25,9 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField]
     private int dropChance;
 
+    [SerializeField]
+    public float Damage;
+
 
     void Awake()
     {
