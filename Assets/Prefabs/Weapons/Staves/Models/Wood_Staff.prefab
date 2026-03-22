@@ -254,7 +254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   staffDmg: 20
-  attackPrefab: {fileID: 8550895464038614403, guid: bdbc8b0ac3f2c8c4baa3d9de3a92048a, type: 3}
+  attackPrefab: {fileID: 7040779820973051505, guid: 8d4825f4975304447b520456d4ab0d22, type: 3}
   offset: {x: 0.7, y: 0.2, z: 0.5}
   rotation: {x: 90, y: 0, z: 0}
   staffAnim: {fileID: 4891128604265489074}

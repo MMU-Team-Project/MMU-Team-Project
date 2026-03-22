@@ -39,7 +39,6 @@ public class EquipEdited : MonoBehaviour
             {
                 items.unequipItem();
             }
-            Debug.Log(equipped);
         }
     }
 
