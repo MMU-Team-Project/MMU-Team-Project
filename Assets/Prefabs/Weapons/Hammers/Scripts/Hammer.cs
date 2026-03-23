@@ -1,18 +1,16 @@
-using System.Collections;
-using UnityEditor;
-using UnityEditor.Build;
 using UnityEngine;
 
-public class Apple : MonoBehaviour, IWeapon
+public class Hammer : MonoBehaviour, IWeapon
 {
     private GameObject player;
+    [SerializeField] private float hammerDmg = 50;
+    [SerializeField] private GameObject attackPrefab;
     [SerializeField] private Vector3 offset;
     [SerializeField] private Vector3 rotation;
-    [SerializeField] private Animator appleAnim;
-    private Camera playerCam;
+    [SerializeField] private Animator hammerAnim;
 
-    [SerializeField] private float eatCD = 0.5f;
-    private float offCDEat = 0f;
+    [SerializeField] private float slammerCD = 2f;
+    private float offCDSlammer = 0f;
 
     public void SetPlayer(GameObject newPlayer)
     {
@@ -35,33 +33,33 @@ public class Apple : MonoBehaviour, IWeapon
 
     public void Equip(GameObject newPlayer)
     {
-        Debug.Log("Got here");
         SetPlayer(newPlayer);
         transform.SetParent(player.transform, false);
         transform.localPosition = offset;
         transform.localRotation = Quaternion.Euler(rotation);
-        playerCam = player.transform.GetComponentInChildren<Camera>();
     }
 
     public void Use()
     {
         if (player != null)
         {
-            if (Time.time < offCDEat)
+            if (Time.time < offCDSlammer)
             {
                 Debug.Log("Cooldown!");
                 return;
             }
-
-            appleAnim.SetTrigger("Eating");
+            offCDSlammer = Time.time + slammerCD;
+            hammerAnim.SetTrigger("Slam");
         }
     }
 
-    public void Eat()
+    public void Slammer()
     {
-        offCDEat = Time.time + eatCD;
-        Player playerScript = player.GetComponent<Player>();
-        playerScript.health += 10;
-        Destroy(gameObject);
+        GameObject slamAttack = Instantiate(attackPrefab);
+        slamAttack.transform.position = player.transform.position + player.transform.forward * 3;
+        slamAttack.transform.rotation = player.transform.rotation;
+
+        SlamAttack slamScript = slamAttack.GetComponent<SlamAttack>();
+        slamScript.Setup(hammerDmg);
     }
 }

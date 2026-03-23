@@ -408,6 +408,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6465386743497655719, guid: fe78e603156f7ea4eb640c9ff76c312d, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465386743497655719, guid: fe78e603156f7ea4eb640c9ff76c312d, type: 3}
+      propertyPath: m_Color.g
+      value: 0.3537736
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465386743497655719, guid: fe78e603156f7ea4eb640c9ff76c312d, type: 3}
+      propertyPath: m_Color.r
+      value: 0.63909286
+      objectReference: {fileID: 0}
     - target: {fileID: 6993115282713148399, guid: fe78e603156f7ea4eb640c9ff76c312d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -443,7 +455,7 @@ PrefabInstance:
     - target: {fileID: 9052947361912141094, guid: fe78e603156f7ea4eb640c9ff76c312d, type: 3}
       propertyPath: itemData
       value: 
-      objectReference: {fileID: 11400000, guid: 73d800143d9678e44854c424c4d7a6c0, type: 2}
+      objectReference: {fileID: 11400000, guid: 17af42c16bee4e1449e4495ad4c44e44, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3458,7 +3470,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8602512623416390129, guid: 536ca052fc351514a96546f88c65c5c9, type: 3}
       propertyPath: spawnsLeft
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8602512623416390129, guid: 536ca052fc351514a96546f88c65c5c9, type: 3}
       propertyPath: maxSpawnTime
