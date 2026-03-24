@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 public class Bow : MonoBehaviour, IWeapon
 {
@@ -5,15 +6,16 @@ public class Bow : MonoBehaviour, IWeapon
     private GameObject player;
     private Camera playerCam;
 
+    [SerializeField] private Rigidbody rb;
     [SerializeField] private Vector3 offset;
     [SerializeField] private Vector3 rotation;
     [SerializeField] private Animator bowAnim;
     [SerializeField] private GameObject attackPrefab;
 
     private float offCDShooting = 0f;
-    [SerializeField] private float shootingCD = 2f;
-    [SerializeField] private float shootDmg = 50;
-    [SerializeField] private float range = 50f;
+    [SerializeField] private float shootingRange = 30f;
+    [SerializeField] private float shootingCD = 1f;
+    [SerializeField] private float shootDmg = 30f;
 
     public void SetPlayer(GameObject newPlayer)
     {
@@ -43,31 +45,34 @@ public class Bow : MonoBehaviour, IWeapon
                 return;
             }
 
-            Shoot();
             bowAnim.SetTrigger("Shoot");
-        }
-    }
-
-    private void Shoot()
-    {
-        RaycastHit hit;
-        if (Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out hit, range))
-        {
-            Debug.Log(hit.transform.name);
-            Arrow();
         }
     }
 
     public void Arrow()
     {
+        // Shooting cooldown
         offCDShooting = Time.time + shootingCD;
 
+        // Instantiate an arrow
         GameObject arrow = Instantiate(attackPrefab);
 
-        arrow.transform.position = player.transform.position + playerCam.transform.forward * 2;
+        rb = arrow.GetComponent<Rigidbody>();
+        arrow.transform.position = transform.position;
+        rb.linearVelocity = playerCam.transform.forward*shootingRange;
 
+        // Elements borrowed from MagicMissle
         Arrow projectileScript = arrow.GetComponent<Arrow>();
-        projectileScript.Setup(playerCam, shootDmg);
+        projectileScript.Setup(shootDmg,rb);
+
+        // Make arrow disappear after some time
+        StartCoroutine(arrowUpdate(arrow));
+    }
+
+    IEnumerator arrowUpdate(GameObject arrow)
+    {
+        yield return new WaitForSeconds(5f);
+        Destroy(arrow);
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
